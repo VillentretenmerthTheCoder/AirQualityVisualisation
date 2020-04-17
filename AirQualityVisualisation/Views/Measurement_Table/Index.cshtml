@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AirQualityVisualisation.Models.Measurement_Table>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RaaResultat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AKorrektion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BKorrektion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataType_Table.DataTypeNavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instrument_Table.InstruksNavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stof_Table.StofNavn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_Table.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Table.ProduktId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaaResultat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AKorrektion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BKorrektion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataType_Table.DataTypeNavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instrument_Table.InstruksNavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stof_Table.StofNavn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_Table.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Table.ProduktId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProduktId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProduktId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProduktId })
+        </td>
+    </tr>
+}
+
+</table>

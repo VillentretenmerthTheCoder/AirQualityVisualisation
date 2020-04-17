@@ -1,0 +1,82 @@
+﻿@model AirQualityVisualisation.Models.Measurement_Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Measurement_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RaaResultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaaResultat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AKorrektion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AKorrektion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BKorrektion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BKorrektion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataType_Table.DataTypeNavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataType_Table.DataTypeNavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instrument_Table.InstruksNavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instrument_Table.InstruksNavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stof_Table.StofNavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stof_Table.StofNavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit_Table.Navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit_Table.Navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_Table.ProduktId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_Table.ProduktId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProduktId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

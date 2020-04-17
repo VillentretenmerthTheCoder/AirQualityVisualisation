@@ -1,0 +1,50 @@
+﻿@model AirQualityVisualisation.Models.Aktivitet_Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Aktivitet_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AktivitetTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AktivitetTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatoMaerke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatoMaerke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpPeriodeTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpPeriodeTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opstilling_Table.Kode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opstilling_Table.Kode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AktivitetId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

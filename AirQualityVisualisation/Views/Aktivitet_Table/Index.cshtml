@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AirQualityVisualisation.Models.Aktivitet_Table>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AktivitetTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatoMaerke)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpPeriodeTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opstilling_Table.Kode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AktivitetTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatoMaerke)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpPeriodeTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opstilling_Table.Kode)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AktivitetId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AktivitetId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AktivitetId })
+        </td>
+    </tr>
+}
+
+</table>

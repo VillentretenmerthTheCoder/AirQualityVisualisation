@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80b097959f2f4b198c12f56623dcb281" Name="Diagram1">
+        <EntityTypeShape EntityType="AirData_F2019Model.Aktivitet_Table" Width="1.5" PointX="1.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.AnalyseResultat_Table" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.DataType_Table" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Geometri_Table" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Instrument_Table" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Maalested_Table" Width="1.5" PointX="1.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Measurement_Table" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Opstilling_Table" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Product_Table" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.ProductType_Table" Width="1.5" PointX="1.5" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Proeve_Table" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Stof_Table" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Unit_Table" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirData_F2019Model.Final_View" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="AirData_F2019Model.Aktivitet_Table_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Product_Table_FK02" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.AnalyseResultat_Table_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.AnalyseResultat_Table_FK02" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Measurement_Table_FK03" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Measurement_Table_FK04" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Opstilling_Table_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Measurement_Table_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Measurement_Table_FK02" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Measurement_Table_FK05" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Product_Table_FK01" ManuallyRouted="false" />
+        <AssociationConnector Association="AirData_F2019Model.Proeve_Table_FK01" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

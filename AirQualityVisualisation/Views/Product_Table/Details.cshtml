@@ -1,0 +1,50 @@
+﻿@model AirQualityVisualisation.Models.Product_Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Aktivitet_Table.AktivitetId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aktivitet_Table.AktivitetId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Measurement_Table.ProduktId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Measurement_Table.ProduktId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType_Table.Navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType_Table.Navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proeve_Table.ProduktId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proeve_Table.ProduktId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProduktId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

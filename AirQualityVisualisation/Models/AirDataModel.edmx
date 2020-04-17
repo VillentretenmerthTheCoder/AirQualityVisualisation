@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AirData_F2019Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aktivitet_Table">
+          <Key>
+            <PropertyRef Name="AktivitetId" />
+          </Key>
+          <Property Name="AktivitetId" Type="int" Nullable="false" />
+          <Property Name="AktivitetTypeId" Type="int" />
+          <Property Name="OpstillingId" Type="int" />
+          <Property Name="DatoMaerke" Type="datetime" />
+          <Property Name="ExpPeriodeTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="AnalyseResultat_Table">
+          <Key>
+            <PropertyRef Name="AnalyseResultatId" />
+          </Key>
+          <Property Name="AnalyseResultatId" Type="int" Nullable="false" />
+          <Property Name="StofId" Type="int" Nullable="false" />
+          <Property Name="AnalyseInstruksId" Type="int" Nullable="false" />
+          <Property Name="DataTypeId" Type="int" Nullable="false" />
+          <Property Name="RaaResultat" Type="float" />
+          <Property Name="RaaEnhedId" Type="int" Nullable="false" />
+          <Property Name="ProjektResultat" Type="float" />
+          <Property Name="ProjektEnhedId" Type="int" />
+          <Property Name="AnalyseDato" Type="datetime" />
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DataType_Table">
+          <Key>
+            <PropertyRef Name="DataTypeId" />
+          </Key>
+          <Property Name="DataTypeId" Type="int" Nullable="false" />
+          <Property Name="DataTypeNavn" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Geometri_Table">
+          <Key>
+            <PropertyRef Name="GeometriId" />
+          </Key>
+          <Property Name="GeometriId" Type="int" Nullable="false" />
+          <Property Name="UTMX" Type="int" />
+          <Property Name="UTMY" Type="int" />
+          <Property Name="UTMZone" Type="int" />
+        </EntityType>
+        <EntityType Name="Instrument_Table">
+          <Key>
+            <PropertyRef Name="InstruksId" />
+          </Key>
+          <Property Name="InstruksId" Type="int" Nullable="false" />
+          <Property Name="InstruksNavn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Titel" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Maalested_Table">
+          <Key>
+            <PropertyRef Name="MaaleStedId" />
+          </Key>
+          <Property Name="MaaleStedId" Type="int" Nullable="false" />
+          <Property Name="Navn" Type="nvarchar" MaxLength="50" />
+          <Property Name="Akronym" Type="nvarchar" MaxLength="30" />
+          <Property Name="GeometriId" Type="int" />
+        </EntityType>
+        <EntityType Name="Measurement_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="RaaResultat" Type="float" />
+          <Property Name="StofId" Type="int" Nullable="false" />
+          <Property Name="DataTypeId" Type="int" Nullable="false" />
+          <Property Name="InstruksId" Type="int" Nullable="false" />
+          <Property Name="EnhedId" Type="int" Nullable="false" />
+          <Property Name="AKorrektion" Type="float" />
+          <Property Name="BKorrektion" Type="float" />
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opstilling_Table">
+          <Key>
+            <PropertyRef Name="OpstillingId" />
+          </Key>
+          <Property Name="OpstillingId" Type="int" Nullable="false" />
+          <Property Name="Kode" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaaleStedId" Type="int" />
+        </EntityType>
+        <EntityType Name="Product_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+          <Property Name="AktivitetId" Type="int" />
+          <Property Name="ProduktTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductType_Table">
+          <Key>
+            <PropertyRef Name="ProduktTypeId" />
+          </Key>
+          <Property Name="ProduktTypeId" Type="int" Nullable="false" />
+          <Property Name="Navn" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Proeve_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+          <Property Name="ProeveTypeId" Type="int" />
+          <Property Name="AnalyseTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Stof_Table">
+          <Key>
+            <PropertyRef Name="StofId" />
+          </Key>
+          <Property Name="StofId" Type="int" Nullable="false" />
+          <Property Name="StofNavn" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Unit_Table">
+          <Key>
+            <PropertyRef Name="EnhedId" />
+          </Key>
+          <Property Name="EnhedId" Type="int" Nullable="false" />
+          <Property Name="Navn" Type="nvarchar" MaxLength="30" />
+          <Property Name="Kommentar" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AirData_F2019.dbo.Final_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Final_View">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="DatoMaerke" Type="datetime" />
+          <Property Name="Navn" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProduktId" Type="int" Nullable="false" />
+          <Property Name="RaaResultat" Type="float" />
+          <Property Name="Kode" Type="nvarchar" MaxLength="50" />
+          <Property Name="StofNavn" Type="nvarchar" MaxLength="30" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="Aktivitet_Table_FK01">
+          <End Role="Opstilling_Table" Type="Self.Opstilling_Table" Multiplicity="0..1" />
+          <End Role="Aktivitet_Table" Type="Self.Aktivitet_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opstilling_Table">
+              <PropertyRef Name="OpstillingId" />
+            </Principal>
+            <Dependent Role="Aktivitet_Table">
+              <PropertyRef Name="OpstillingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnalyseResultat_Table_FK01">
+          <End Role="Stof_Table" Type="Self.Stof_Table" Multiplicity="1" />
+          <End Role="AnalyseResultat_Table" Type="Self.AnalyseResultat_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stof_Table">
+              <PropertyRef Name="StofId" />
+            </Principal>
+            <Dependent Role="AnalyseResultat_Table">
+              <PropertyRef Name="StofId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnalyseResultat_Table_FK02">
+          <End Role="Unit_Table" Type="Self.Unit_Table" Multiplicity="1" />
+          <End Role="AnalyseResultat_Table" Type="Self.AnalyseResultat_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit_Table">
+              <PropertyRef Name="EnhedId" />
+            </Principal>
+            <Dependent Role="AnalyseResultat_Table">
+              <PropertyRef Name="RaaEnhedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK01">
+          <End Role="Stof_Table" Type="Self.Stof_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stof_Table">
+              <PropertyRef Name="StofId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="StofId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK02">
+          <End Role="Unit_Table" Type="Self.Unit_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit_Table">
+              <PropertyRef Name="EnhedId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="EnhedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK03">
+          <End Role="DataType_Table" Type="Self.DataType_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataType_Table">
+              <PropertyRef Name="DataTypeId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="DataTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK04">
+          <End Role="Instrument_Table" Type="Self.Instrument_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instrument_Table">
+              <PropertyRef Name="InstruksId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="InstruksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK05">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Opstilling_Table_FK01">
+          <End Role="Maalested_Table" Type="Self.Maalested_Table" Multiplicity="0..1" />
+          <End Role="Opstilling_Table" Type="Self.Opstilling_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maalested_Table">
+              <PropertyRef Name="MaaleStedId" />
+            </Principal>
+            <Dependent Role="Opstilling_Table">
+              <PropertyRef Name="MaaleStedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Table_FK01">
+          <End Role="ProductType_Table" Type="Self.ProductType_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType_Table">
+              <PropertyRef Name="ProduktTypeId" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="ProduktTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Table_FK02">
+          <End Role="Aktivitet_Table" Type="Self.Aktivitet_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktivitet_Table">
+              <PropertyRef Name="AktivitetId" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="AktivitetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Proeve_Table_FK01">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Proeve_Table" Type="Self.Proeve_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="Proeve_Table">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirData_F2019ModelStoreContainer">
+          <EntitySet Name="Aktivitet_Table" EntityType="Self.Aktivitet_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnalyseResultat_Table" EntityType="Self.AnalyseResultat_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DataType_Table" EntityType="Self.DataType_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Geometri_Table" EntityType="Self.Geometri_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Instrument_Table" EntityType="Self.Instrument_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maalested_Table" EntityType="Self.Maalested_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Measurement_Table" EntityType="Self.Measurement_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Opstilling_Table" EntityType="Self.Opstilling_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_Table" EntityType="Self.Product_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType_Table" EntityType="Self.ProductType_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proeve_Table" EntityType="Self.Proeve_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stof_Table" EntityType="Self.Stof_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit_Table" EntityType="Self.Unit_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Final_View" EntityType="Self.Final_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Final_View].[DatoMaerke] AS [DatoMaerke], 
+    [Final_View].[Navn] AS [Navn], 
+    [Final_View].[ProduktId] AS [ProduktId], 
+    [Final_View].[RaaResultat] AS [RaaResultat], 
+    [Final_View].[Kode] AS [Kode], 
+    [Final_View].[StofNavn] AS [StofNavn], 
+    [Final_View].[Expr1] AS [Expr1]
+    FROM [dbo].[Final_View] AS [Final_View]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="Aktivitet_Table_FK01" Association="Self.Aktivitet_Table_FK01">
+            <End Role="Opstilling_Table" EntitySet="Opstilling_Table" />
+            <End Role="Aktivitet_Table" EntitySet="Aktivitet_Table" />
+          </AssociationSet>
+          <AssociationSet Name="AnalyseResultat_Table_FK01" Association="Self.AnalyseResultat_Table_FK01">
+            <End Role="Stof_Table" EntitySet="Stof_Table" />
+            <End Role="AnalyseResultat_Table" EntitySet="AnalyseResultat_Table" />
+          </AssociationSet>
+          <AssociationSet Name="AnalyseResultat_Table_FK02" Association="Self.AnalyseResultat_Table_FK02">
+            <End Role="Unit_Table" EntitySet="Unit_Table" />
+            <End Role="AnalyseResultat_Table" EntitySet="AnalyseResultat_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK01" Association="Self.Measurement_Table_FK01">
+            <End Role="Stof_Table" EntitySet="Stof_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK02" Association="Self.Measurement_Table_FK02">
+            <End Role="Unit_Table" EntitySet="Unit_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK03" Association="Self.Measurement_Table_FK03">
+            <End Role="DataType_Table" EntitySet="DataType_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK04" Association="Self.Measurement_Table_FK04">
+            <End Role="Instrument_Table" EntitySet="Instrument_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK05" Association="Self.Measurement_Table_FK05">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Opstilling_Table_FK01" Association="Self.Opstilling_Table_FK01">
+            <End Role="Maalested_Table" EntitySet="Maalested_Table" />
+            <End Role="Opstilling_Table" EntitySet="Opstilling_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Table_FK01" Association="Self.Product_Table_FK01">
+            <End Role="ProductType_Table" EntitySet="ProductType_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Table_FK02" Association="Self.Product_Table_FK02">
+            <End Role="Aktivitet_Table" EntitySet="Aktivitet_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Proeve_Table_FK01" Association="Self.Proeve_Table_FK01">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Proeve_Table" EntitySet="Proeve_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AirData_F2019Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aktivitet_Table">
+          <Key>
+            <PropertyRef Name="AktivitetId" />
+          </Key>
+          <Property Name="AktivitetId" Type="Int32" Nullable="false" />
+          <Property Name="AktivitetTypeId" Type="Int32" />
+          <Property Name="OpstillingId" Type="Int32" />
+          <Property Name="DatoMaerke" Type="DateTime" Precision="3" />
+          <Property Name="ExpPeriodeTypeId" Type="Int32" />
+          <NavigationProperty Name="Opstilling_Table" Relationship="Self.Aktivitet_Table_FK01" FromRole="Aktivitet_Table" ToRole="Opstilling_Table" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.Product_Table_FK02" FromRole="Aktivitet_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="AnalyseResultat_Table">
+          <Key>
+            <PropertyRef Name="AnalyseResultatId" />
+          </Key>
+          <Property Name="AnalyseResultatId" Type="Int32" Nullable="false" />
+          <Property Name="StofId" Type="Int32" Nullable="false" />
+          <Property Name="AnalyseInstruksId" Type="Int32" Nullable="false" />
+          <Property Name="DataTypeId" Type="Int32" Nullable="false" />
+          <Property Name="RaaResultat" Type="Double" />
+          <Property Name="RaaEnhedId" Type="Int32" Nullable="false" />
+          <Property Name="ProjektResultat" Type="Double" />
+          <Property Name="ProjektEnhedId" Type="Int32" />
+          <Property Name="AnalyseDato" Type="DateTime" Precision="3" />
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Stof_Table" Relationship="Self.AnalyseResultat_Table_FK01" FromRole="AnalyseResultat_Table" ToRole="Stof_Table" />
+          <NavigationProperty Name="Unit_Table" Relationship="Self.AnalyseResultat_Table_FK02" FromRole="AnalyseResultat_Table" ToRole="Unit_Table" />
+        </EntityType>
+        <EntityType Name="DataType_Table">
+          <Key>
+            <PropertyRef Name="DataTypeId" />
+          </Key>
+          <Property Name="DataTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DataTypeNavn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Measurement_Table" Relationship="Self.Measurement_Table_FK03" FromRole="DataType_Table" ToRole="Measurement_Table" />
+        </EntityType>
+        <EntityType Name="Geometri_Table">
+          <Key>
+            <PropertyRef Name="GeometriId" />
+          </Key>
+          <Property Name="GeometriId" Type="Int32" Nullable="false" />
+          <Property Name="UTMX" Type="Int32" />
+          <Property Name="UTMY" Type="Int32" />
+          <Property Name="UTMZone" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Instrument_Table">
+          <Key>
+            <PropertyRef Name="InstruksId" />
+          </Key>
+          <Property Name="InstruksId" Type="Int32" Nullable="false" />
+          <Property Name="InstruksNavn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Titel" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Measurement_Table" Relationship="Self.Measurement_Table_FK04" FromRole="Instrument_Table" ToRole="Measurement_Table" />
+        </EntityType>
+        <EntityType Name="Maalested_Table">
+          <Key>
+            <PropertyRef Name="MaaleStedId" />
+          </Key>
+          <Property Name="MaaleStedId" Type="Int32" Nullable="false" />
+          <Property Name="Navn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Akronym" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="GeometriId" Type="Int32" />
+          <NavigationProperty Name="Opstilling_Table" Relationship="Self.Opstilling_Table_FK01" FromRole="Maalested_Table" ToRole="Opstilling_Table" />
+        </EntityType>
+        <EntityType Name="Measurement_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="RaaResultat" Type="Double" />
+          <Property Name="StofId" Type="Int32" Nullable="false" />
+          <Property Name="DataTypeId" Type="Int32" Nullable="false" />
+          <Property Name="InstruksId" Type="Int32" Nullable="false" />
+          <Property Name="EnhedId" Type="Int32" Nullable="false" />
+          <Property Name="AKorrektion" Type="Double" />
+          <Property Name="BKorrektion" Type="Double" />
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DataType_Table" Relationship="Self.Measurement_Table_FK03" FromRole="Measurement_Table" ToRole="DataType_Table" />
+          <NavigationProperty Name="Instrument_Table" Relationship="Self.Measurement_Table_FK04" FromRole="Measurement_Table" ToRole="Instrument_Table" />
+          <NavigationProperty Name="Stof_Table" Relationship="Self.Measurement_Table_FK01" FromRole="Measurement_Table" ToRole="Stof_Table" />
+          <NavigationProperty Name="Unit_Table" Relationship="Self.Measurement_Table_FK02" FromRole="Measurement_Table" ToRole="Unit_Table" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.Measurement_Table_FK05" FromRole="Measurement_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Opstilling_Table">
+          <Key>
+            <PropertyRef Name="OpstillingId" />
+          </Key>
+          <Property Name="OpstillingId" Type="Int32" Nullable="false" />
+          <Property Name="Kode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaaleStedId" Type="Int32" />
+          <NavigationProperty Name="Aktivitet_Table" Relationship="Self.Aktivitet_Table_FK01" FromRole="Opstilling_Table" ToRole="Aktivitet_Table" />
+          <NavigationProperty Name="Maalested_Table" Relationship="Self.Opstilling_Table_FK01" FromRole="Opstilling_Table" ToRole="Maalested_Table" />
+        </EntityType>
+        <EntityType Name="Product_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <Property Name="AktivitetId" Type="Int32" />
+          <Property Name="ProduktTypeId" Type="Int32" />
+          <NavigationProperty Name="Aktivitet_Table" Relationship="Self.Product_Table_FK02" FromRole="Product_Table" ToRole="Aktivitet_Table" />
+          <NavigationProperty Name="Measurement_Table" Relationship="Self.Measurement_Table_FK05" FromRole="Product_Table" ToRole="Measurement_Table" />
+          <NavigationProperty Name="ProductType_Table" Relationship="Self.Product_Table_FK01" FromRole="Product_Table" ToRole="ProductType_Table" />
+          <NavigationProperty Name="Proeve_Table" Relationship="Self.Proeve_Table_FK01" FromRole="Product_Table" ToRole="Proeve_Table" />
+        </EntityType>
+        <EntityType Name="ProductType_Table">
+          <Key>
+            <PropertyRef Name="ProduktTypeId" />
+          </Key>
+          <Property Name="ProduktTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Navn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.Product_Table_FK01" FromRole="ProductType_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Proeve_Table">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <Property Name="ProeveTypeId" Type="Int32" />
+          <Property Name="AnalyseTypeId" Type="Int32" />
+          <NavigationProperty Name="Product_Table" Relationship="Self.Proeve_Table_FK01" FromRole="Proeve_Table" ToRole="Product_Table" />
+        </EntityType>
+        <EntityType Name="Stof_Table">
+          <Key>
+            <PropertyRef Name="StofId" />
+          </Key>
+          <Property Name="StofId" Type="Int32" Nullable="false" />
+          <Property Name="StofNavn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AnalyseResultat_Table" Relationship="Self.AnalyseResultat_Table_FK01" FromRole="Stof_Table" ToRole="AnalyseResultat_Table" />
+          <NavigationProperty Name="Measurement_Table" Relationship="Self.Measurement_Table_FK01" FromRole="Stof_Table" ToRole="Measurement_Table" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Unit_Table">
+          <Key>
+            <PropertyRef Name="EnhedId" />
+          </Key>
+          <Property Name="EnhedId" Type="Int32" Nullable="false" />
+          <Property Name="Navn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Kommentar" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AnalyseResultat_Table" Relationship="Self.AnalyseResultat_Table_FK02" FromRole="Unit_Table" ToRole="AnalyseResultat_Table" />
+          <NavigationProperty Name="Measurement_Table" Relationship="Self.Measurement_Table_FK02" FromRole="Unit_Table" ToRole="Measurement_Table" />
+        </EntityType>
+        <EntityType Name="Final_View">
+          <Key>
+            <PropertyRef Name="ProduktId" />
+          </Key>
+          <Property Name="DatoMaerke" Type="DateTime" Precision="3" />
+          <Property Name="Navn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProduktId" Type="Int32" Nullable="false" />
+          <Property Name="RaaResultat" Type="Double" />
+          <Property Name="Kode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StofNavn" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="Aktivitet_Table_FK01">
+          <End Role="Opstilling_Table" Type="Self.Opstilling_Table" Multiplicity="0..1" />
+          <End Role="Aktivitet_Table" Type="Self.Aktivitet_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opstilling_Table">
+              <PropertyRef Name="OpstillingId" />
+            </Principal>
+            <Dependent Role="Aktivitet_Table">
+              <PropertyRef Name="OpstillingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Table_FK02">
+          <End Role="Aktivitet_Table" Type="Self.Aktivitet_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktivitet_Table">
+              <PropertyRef Name="AktivitetId" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="AktivitetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnalyseResultat_Table_FK01">
+          <End Role="Stof_Table" Type="Self.Stof_Table" Multiplicity="1" />
+          <End Role="AnalyseResultat_Table" Type="Self.AnalyseResultat_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stof_Table">
+              <PropertyRef Name="StofId" />
+            </Principal>
+            <Dependent Role="AnalyseResultat_Table">
+              <PropertyRef Name="StofId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AnalyseResultat_Table_FK02">
+          <End Role="Unit_Table" Type="Self.Unit_Table" Multiplicity="1" />
+          <End Role="AnalyseResultat_Table" Type="Self.AnalyseResultat_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit_Table">
+              <PropertyRef Name="EnhedId" />
+            </Principal>
+            <Dependent Role="AnalyseResultat_Table">
+              <PropertyRef Name="RaaEnhedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK03">
+          <End Role="DataType_Table" Type="Self.DataType_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DataType_Table">
+              <PropertyRef Name="DataTypeId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="DataTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK04">
+          <End Role="Instrument_Table" Type="Self.Instrument_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instrument_Table">
+              <PropertyRef Name="InstruksId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="InstruksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Opstilling_Table_FK01">
+          <End Role="Maalested_Table" Type="Self.Maalested_Table" Multiplicity="0..1" />
+          <End Role="Opstilling_Table" Type="Self.Opstilling_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maalested_Table">
+              <PropertyRef Name="MaaleStedId" />
+            </Principal>
+            <Dependent Role="Opstilling_Table">
+              <PropertyRef Name="MaaleStedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK01">
+          <End Role="Stof_Table" Type="Self.Stof_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stof_Table">
+              <PropertyRef Name="StofId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="StofId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK02">
+          <End Role="Unit_Table" Type="Self.Unit_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit_Table">
+              <PropertyRef Name="EnhedId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="EnhedId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Table_FK05">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Measurement_Table" Type="Self.Measurement_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="Measurement_Table">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Product_Table_FK01">
+          <End Role="ProductType_Table" Type="Self.ProductType_Table" Multiplicity="0..1" />
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType_Table">
+              <PropertyRef Name="ProduktTypeId" />
+            </Principal>
+            <Dependent Role="Product_Table">
+              <PropertyRef Name="ProduktTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Proeve_Table_FK01">
+          <End Role="Product_Table" Type="Self.Product_Table" Multiplicity="1" />
+          <End Role="Proeve_Table" Type="Self.Proeve_Table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Table">
+              <PropertyRef Name="ProduktId" />
+            </Principal>
+            <Dependent Role="Proeve_Table">
+              <PropertyRef Name="ProduktId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AirData_F2019Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aktivitet_Table" EntityType="Self.Aktivitet_Table" />
+          <EntitySet Name="AnalyseResultat_Table" EntityType="Self.AnalyseResultat_Table" />
+          <EntitySet Name="DataType_Table" EntityType="Self.DataType_Table" />
+          <EntitySet Name="Geometri_Table" EntityType="Self.Geometri_Table" />
+          <EntitySet Name="Instrument_Table" EntityType="Self.Instrument_Table" />
+          <EntitySet Name="Maalested_Table" EntityType="Self.Maalested_Table" />
+          <EntitySet Name="Measurement_Table" EntityType="Self.Measurement_Table" />
+          <EntitySet Name="Opstilling_Table" EntityType="Self.Opstilling_Table" />
+          <EntitySet Name="Product_Table" EntityType="Self.Product_Table" />
+          <EntitySet Name="ProductType_Table" EntityType="Self.ProductType_Table" />
+          <EntitySet Name="Proeve_Table" EntityType="Self.Proeve_Table" />
+          <EntitySet Name="Stof_Table" EntityType="Self.Stof_Table" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Unit_Table" EntityType="Self.Unit_Table" />
+          <EntitySet Name="Final_View" EntityType="Self.Final_View" />
+          <AssociationSet Name="Aktivitet_Table_FK01" Association="Self.Aktivitet_Table_FK01">
+            <End Role="Opstilling_Table" EntitySet="Opstilling_Table" />
+            <End Role="Aktivitet_Table" EntitySet="Aktivitet_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Table_FK02" Association="Self.Product_Table_FK02">
+            <End Role="Aktivitet_Table" EntitySet="Aktivitet_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="AnalyseResultat_Table_FK01" Association="Self.AnalyseResultat_Table_FK01">
+            <End Role="Stof_Table" EntitySet="Stof_Table" />
+            <End Role="AnalyseResultat_Table" EntitySet="AnalyseResultat_Table" />
+          </AssociationSet>
+          <AssociationSet Name="AnalyseResultat_Table_FK02" Association="Self.AnalyseResultat_Table_FK02">
+            <End Role="Unit_Table" EntitySet="Unit_Table" />
+            <End Role="AnalyseResultat_Table" EntitySet="AnalyseResultat_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK03" Association="Self.Measurement_Table_FK03">
+            <End Role="DataType_Table" EntitySet="DataType_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK04" Association="Self.Measurement_Table_FK04">
+            <End Role="Instrument_Table" EntitySet="Instrument_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Opstilling_Table_FK01" Association="Self.Opstilling_Table_FK01">
+            <End Role="Maalested_Table" EntitySet="Maalested_Table" />
+            <End Role="Opstilling_Table" EntitySet="Opstilling_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK01" Association="Self.Measurement_Table_FK01">
+            <End Role="Stof_Table" EntitySet="Stof_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK02" Association="Self.Measurement_Table_FK02">
+            <End Role="Unit_Table" EntitySet="Unit_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Table_FK05" Association="Self.Measurement_Table_FK05">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Measurement_Table" EntitySet="Measurement_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Product_Table_FK01" Association="Self.Product_Table_FK01">
+            <End Role="ProductType_Table" EntitySet="ProductType_Table" />
+            <End Role="Product_Table" EntitySet="Product_Table" />
+          </AssociationSet>
+          <AssociationSet Name="Proeve_Table_FK01" Association="Self.Proeve_Table_FK01">
+            <End Role="Product_Table" EntitySet="Product_Table" />
+            <End Role="Proeve_Table" EntitySet="Proeve_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AirData_F2019ModelStoreContainer" CdmEntityContainer="AirData_F2019Entities3">
+          <EntitySetMapping Name="Aktivitet_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Aktivitet_Table">
+              <MappingFragment StoreEntitySet="Aktivitet_Table">
+                <ScalarProperty Name="AktivitetId" ColumnName="AktivitetId" />
+                <ScalarProperty Name="AktivitetTypeId" ColumnName="AktivitetTypeId" />
+                <ScalarProperty Name="OpstillingId" ColumnName="OpstillingId" />
+                <ScalarProperty Name="DatoMaerke" ColumnName="DatoMaerke" />
+                <ScalarProperty Name="ExpPeriodeTypeId" ColumnName="ExpPeriodeTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnalyseResultat_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.AnalyseResultat_Table">
+              <MappingFragment StoreEntitySet="AnalyseResultat_Table">
+                <ScalarProperty Name="AnalyseResultatId" ColumnName="AnalyseResultatId" />
+                <ScalarProperty Name="StofId" ColumnName="StofId" />
+                <ScalarProperty Name="AnalyseInstruksId" ColumnName="AnalyseInstruksId" />
+                <ScalarProperty Name="DataTypeId" ColumnName="DataTypeId" />
+                <ScalarProperty Name="RaaResultat" ColumnName="RaaResultat" />
+                <ScalarProperty Name="RaaEnhedId" ColumnName="RaaEnhedId" />
+                <ScalarProperty Name="ProjektResultat" ColumnName="ProjektResultat" />
+                <ScalarProperty Name="ProjektEnhedId" ColumnName="ProjektEnhedId" />
+                <ScalarProperty Name="AnalyseDato" ColumnName="AnalyseDato" />
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DataType_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.DataType_Table">
+              <MappingFragment StoreEntitySet="DataType_Table">
+                <ScalarProperty Name="DataTypeId" ColumnName="DataTypeId" />
+                <ScalarProperty Name="DataTypeNavn" ColumnName="DataTypeNavn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Geometri_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Geometri_Table">
+              <MappingFragment StoreEntitySet="Geometri_Table">
+                <ScalarProperty Name="GeometriId" ColumnName="GeometriId" />
+                <ScalarProperty Name="UTMX" ColumnName="UTMX" />
+                <ScalarProperty Name="UTMY" ColumnName="UTMY" />
+                <ScalarProperty Name="UTMZone" ColumnName="UTMZone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instrument_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Instrument_Table">
+              <MappingFragment StoreEntitySet="Instrument_Table">
+                <ScalarProperty Name="InstruksId" ColumnName="InstruksId" />
+                <ScalarProperty Name="InstruksNavn" ColumnName="InstruksNavn" />
+                <ScalarProperty Name="Titel" ColumnName="Titel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maalested_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Maalested_Table">
+              <MappingFragment StoreEntitySet="Maalested_Table">
+                <ScalarProperty Name="MaaleStedId" ColumnName="MaaleStedId" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+                <ScalarProperty Name="Akronym" ColumnName="Akronym" />
+                <ScalarProperty Name="GeometriId" ColumnName="GeometriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measurement_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Measurement_Table">
+              <MappingFragment StoreEntitySet="Measurement_Table">
+                <ScalarProperty Name="RaaResultat" ColumnName="RaaResultat" />
+                <ScalarProperty Name="StofId" ColumnName="StofId" />
+                <ScalarProperty Name="DataTypeId" ColumnName="DataTypeId" />
+                <ScalarProperty Name="InstruksId" ColumnName="InstruksId" />
+                <ScalarProperty Name="EnhedId" ColumnName="EnhedId" />
+                <ScalarProperty Name="AKorrektion" ColumnName="AKorrektion" />
+                <ScalarProperty Name="BKorrektion" ColumnName="BKorrektion" />
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opstilling_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Opstilling_Table">
+              <MappingFragment StoreEntitySet="Opstilling_Table">
+                <ScalarProperty Name="OpstillingId" ColumnName="OpstillingId" />
+                <ScalarProperty Name="Kode" ColumnName="Kode" />
+                <ScalarProperty Name="MaaleStedId" ColumnName="MaaleStedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Product_Table">
+              <MappingFragment StoreEntitySet="Product_Table">
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+                <ScalarProperty Name="AktivitetId" ColumnName="AktivitetId" />
+                <ScalarProperty Name="ProduktTypeId" ColumnName="ProduktTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductType_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.ProductType_Table">
+              <MappingFragment StoreEntitySet="ProductType_Table">
+                <ScalarProperty Name="ProduktTypeId" ColumnName="ProduktTypeId" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proeve_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Proeve_Table">
+              <MappingFragment StoreEntitySet="Proeve_Table">
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+                <ScalarProperty Name="ProeveTypeId" ColumnName="ProeveTypeId" />
+                <ScalarProperty Name="AnalyseTypeId" ColumnName="AnalyseTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stof_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Stof_Table">
+              <MappingFragment StoreEntitySet="Stof_Table">
+                <ScalarProperty Name="StofId" ColumnName="StofId" />
+                <ScalarProperty Name="StofNavn" ColumnName="StofNavn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AirData_F2019Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit_Table">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Unit_Table">
+              <MappingFragment StoreEntitySet="Unit_Table">
+                <ScalarProperty Name="EnhedId" ColumnName="EnhedId" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+                <ScalarProperty Name="Kommentar" ColumnName="Kommentar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Final_View">
+            <EntityTypeMapping TypeName="AirData_F2019Model.Final_View">
+              <MappingFragment StoreEntitySet="Final_View">
+                <ScalarProperty Name="DatoMaerke" ColumnName="DatoMaerke" />
+                <ScalarProperty Name="Navn" ColumnName="Navn" />
+                <ScalarProperty Name="ProduktId" ColumnName="ProduktId" />
+                <ScalarProperty Name="RaaResultat" ColumnName="RaaResultat" />
+                <ScalarProperty Name="Kode" ColumnName="Kode" />
+                <ScalarProperty Name="StofNavn" ColumnName="StofNavn" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

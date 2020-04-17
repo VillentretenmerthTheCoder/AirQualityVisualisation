@@ -1,0 +1,66 @@
+﻿@model AirQualityVisualisation.Models.Final_View
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Final_View</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DatoMaerke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatoMaerke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaaResultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaaResultat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StofNavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StofNavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Expr1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Expr1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProduktId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

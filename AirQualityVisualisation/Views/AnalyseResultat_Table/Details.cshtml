@@ -1,0 +1,90 @@
+﻿@model AirQualityVisualisation.Models.AnalyseResultat_Table
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AnalyseResultat_Table</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalyseInstruksId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalyseInstruksId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataTypeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RaaResultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RaaResultat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjektResultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjektResultat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjektEnhedId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjektEnhedId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalyseDato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalyseDato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProduktId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProduktId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stof_Table.StofNavn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stof_Table.StofNavn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit_Table.Navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit_Table.Navn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AnalyseResultatId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
