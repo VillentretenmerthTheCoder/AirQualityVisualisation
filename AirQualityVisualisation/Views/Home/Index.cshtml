@@ -20,17 +20,32 @@
 }
 
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    @Html.ActionLink("List of Measurements", "Index", "Measurement_Table")<br />
-    @Html.ActionLink("List of Analyse Results", "Index", "AnalyseResultat_Table")<br />
-    @Html.ActionLink("List of Products", "Index", "Product_Table")<br />
-    @Html.ActionLink("List of Aktivitet", "Index", "Aktivitet_Table")<br />
-    @Html.ActionLink("Final_View", "Index", "Final_View")
+    <div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <ul>
+            <li>
+                @Html.ActionLink("List of Measurements", "Index", "Measurement_Table")
+            </li>
+            <li>
+                @Html.ActionLink("List of Analyse Results", "Index", "AnalyseResultat_Table")
+            </li>
+            <li>
+                @Html.ActionLink("List of Products", "Index", "Product_Table")
+            </li>
+            <li>
+                @Html.ActionLink("List of Aktivitet", "Index", "Aktivitet_Table")
+            </li>
+            <li>
+                @Html.ActionLink("Final_View", "Index", "Final_View")
+            </li>
+            <li>
+                @Html.ActionLink("Chart", "Index", "Chart")
+            </li>
+        </ul>
 
-</div>
+    </div>
 
 <div class="row">
     <div class="col-md-4">
