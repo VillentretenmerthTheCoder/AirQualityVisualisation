@@ -1,0 +1,11 @@
+﻿
+@{
+    var myChart = new Chart(width: 1200, height: 800)
+        .AddTitle("Chart Title")
+        .AddSeries(
+            name: "Data",
+            xValue: ViewBag.DataX.ToArray(),
+            yValues: ViewBag.DataY.ToArray())
+        .Write();
+}
+
