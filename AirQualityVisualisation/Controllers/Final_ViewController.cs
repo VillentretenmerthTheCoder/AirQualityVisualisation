@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AirQualityVisualisation.Models;
@@ -18,6 +19,11 @@ namespace AirQualityVisualisation.Controllers
         public ActionResult Index()
         {
             return View(db.Final_View.ToList().Take(50));
+        }
+        
+        public async Task<ActionResult> Json()
+        {
+            return Json(await db.Final_View.Take(100).ToListAsync(), JsonRequestBehavior.AllowGet);
         }
 
         // GET: Final_View/Details/5
