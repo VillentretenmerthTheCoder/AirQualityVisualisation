@@ -18,7 +18,7 @@ namespace AirQualityVisualisation.Controllers
             using (SqlConnection connection = new SqlConnection(connectionString.ToString()))
             {
                 List<KeyValuePair<string, float>> data = new List<KeyValuePair<string, float>>();
-                SqlCommand command = new SqlCommand("SELECT StofNavn, RaaResultat FROM Final_View", connection);
+                SqlCommand command = new SqlCommand("SELECT TOP 200 StofNavn, RaaResultat FROM Final_View", connection);
                 //command.Parameters.AddWithValue("@tPatSName", "Your-Parm-Value");
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
